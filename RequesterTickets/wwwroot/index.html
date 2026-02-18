@@ -5,7 +5,7 @@
     <title>Requester Tickets</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Segoe UI", sans-serif;
             margin: 40px;
         }
 
@@ -15,8 +15,9 @@
         }
 
         th, td {
-            border: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
             padding: 8px;
+            font-size: .9em;
         }
 
         th {
@@ -34,13 +35,13 @@
         a {
             text-decoration: none;
             color: #6264a7;
-            font-weight: 700;
+            
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h2 id="title">Requester Tickets</h2>
+        <h2 id="title"></h2>
     </div>
 
     <table id="ticketsTable">
@@ -71,7 +72,6 @@
             if (!username) {
                 document.getElementById("title").innerText = "No requester specified";
             } else {
-                document.getElementById("title").innerText = `Tickets for ${username}`;
 
                 fetch(`/api/requesters/${username}/tickets`)
                     .then(r => {
