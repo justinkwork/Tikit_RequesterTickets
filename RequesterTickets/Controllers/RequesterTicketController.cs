@@ -23,7 +23,7 @@ public class RequesterTicketsController : ControllerBase
         var apiKey = _configuration["ThirdPartyApi:ApiKey"];
 
         // 1) Look up user by username
-        var userUrl = $"{apiBase}/PlatformUser?$filter=username eq '{HttpUtility.UrlEncode(username)}'";
+        var userUrl = $"{apiBase}/PlatformUser?$filter=AadObjectId eq '{HttpUtility.UrlEncode(username)}'";
         var userRequest = new HttpRequestMessage(HttpMethod.Get, userUrl);
         userRequest.Headers.Add("Authorization", $"Bearer {apiKey}");
 
